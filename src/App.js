@@ -3,7 +3,7 @@ import Contacts from "./components/Contacts";
 import Header from "./components/Header";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+// import "./App.css";
 
 class App extends Component {
   render() {

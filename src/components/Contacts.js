@@ -24,21 +24,28 @@ class Contacts extends Component {
       }
     ]
   };
+
+  deleteContact = id => {
+    const { contacts } = this.state;
+    const newCotacts = contacts.filter(contact => contact.id !== id);
+    this.setState({
+      contacts: newCotacts
+    });
+  };
   render() {
     const { contacts } = this.state;
     return (
-      <div className="card card-body mb-3">
+      <>
         {contacts.map(contact => (
-          <Contact key={contact.id} contact={contact} />
+          <Contact
+            key={contact.id}
+            contact={contact}
+            deleteClickHandler={this.deleteContact.bind(this, contact.id)}
+          />
         ))}
-      </div>
+      </>
     );
   }
 }
-// Contacts.propTypes = {
-//   name: PropTypes.string.isRequired,
-//   email: PropTypes.string.isRequired,
-//   phone: PropTypes.string.isRequired
-// };
 
 export default Contacts;
